@@ -1,0 +1,46 @@
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    context-path: /
+  tomcat:
+    remoteip:
+      remote-ip-header: x-forwarded-for
+      protocol-header: x-forwarded-proto
+  port: 51000
+
+spring:
+  application:
+    name: @project.artifactId@
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: 'off'
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /doc-api.html
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: on
+
+# minio configuration
+minio:
+  accessKey: root
+  secretKey: yueliminvc@outlook.com
+  endpoint: http://127.0.0.1:9000
+
